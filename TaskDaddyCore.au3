@@ -1,5 +1,5 @@
 #include-once
-#include "OutlookMod.au3"
+#include "TaskDaddyOutlook.au3"
 #include "TaskDaddyLogging.au3"
 #include <Array.au3>
 
