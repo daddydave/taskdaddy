@@ -1,3 +1,12 @@
+#include-once
+#include <Array.au3>
+#include <_OptParse.au3>
+#include "TaskDaddyCore.au3"
+#include "TaskDaddyArgs.au3"
+#include "TaskDaddyGUI.au3"
+
+AutoItSetOption("MustDeclareVars", 1)
+
 ; TaskDaddy
 ; a NANY 2011 project (http://www.donationcoder.com/Forums/bb/index.php?topic=22721.0)
 ; Copyright 2010 by David Eason (daddydave)
@@ -53,12 +62,7 @@
 #AutoIt3Wrapper_Run_After=copy TaskDaddy.exe c:\tools\TaskDaddy
 #AutoIt3Wrapper_Run_After=copy help\TaskDaddy.chm c:\tools\TaskDaddy
 #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
-#include <Array.au3>
-#include <_OptParse.au3>
-#include "TaskDaddyCore.au3"
-#include "TaskDaddyArgs.au3"
-#include "TaskDaddyGUI.au3"
-AutoItSetOption("MustDeclareVars", 1)
+
 Global $InputFile, $FHInputFile, $OOutlook, $StrTask, $LineRead
 Global $TaskFields[7]
 ParseArgs()

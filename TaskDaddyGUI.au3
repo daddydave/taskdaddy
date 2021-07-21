@@ -1,15 +1,10 @@
-; TaskDaddy
-; a NANY 2011 project (http://www.donationcoder.com/Forums/bb/index.php?topic=22721.0)
-; Copyrighted 2010 by David Eason
-; Except for the following useful functions:
-; _OptParse.au3 by Stephen Podhajecki (eltorro)
-; http://code.google.com/p/my-autoit/downloads/detail?name=_OptParse_031209.zip
-; Outlook.au3 by Wooltown (altered version)
-; http://www.autoitscript.com/forum/index.php?showtopic=89321
-; Uses an altered version of Outlook.au3 (2010-01-13) written by Wooltown
+#include-once
 #include <ButtonConstants.au3>
 #include <EditConstants.au3>
 #include <GUIConstantsEx.au3>
+
+AutoItSetOption("MustDeclareVars", 1)
+
 ; Used for file input GUI mode (/f /p)
 Global $GuiReturnedSkip, $GuiReturnedCancelAll
 Global $frmMain

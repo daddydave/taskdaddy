@@ -1,5 +1,6 @@
 #include-once
 #include <Array.au3>
+
 AutoItSetOption("MustDeclareVars", 1)
 
 Global $inputFile = ""
