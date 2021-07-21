@@ -1,5 +1,6 @@
 #include-once
 #include <Array.au3>
+#include "TaskDaddyLogging.au3"
 
 AutoItSetOption("MustDeclareVars", 1)
 
@@ -36,6 +37,8 @@ Func ParseArguments()
 	
 	Local $ndx, $exceptionCode
 
+	; Note $CmdLine array only works when script is compiled.
+
 	If $CmdLine[0] = 0 Then
 		$isGUI = True
 	EndIf
@@ -44,26 +47,21 @@ Func ParseArguments()
 
 	; Merge string was never implemented previously, /m option processing removed
 
-	; Error handling technique: https://www.autoitscript.com/forum/topic/70669-exception-handling-in-autoit/
-	For $ndx = 1 To $CmdLine[0]
+	For $ndx = 1 To $CmdLine[0] ; $CmdLine[0] = number of arguments
 
 			Switch ($CmdLine[$ndx])
 			Case "/f", "-f"
-				;;; TRY
-				Do 
+				$DDLogging = True
+				DDLog("$ndx + 1 = " & String($ndx + 1) & " $CmdLine[0] =" & $CmdLine[$ndx])
+				If $ndx + 1 <= Number($CmdLine[0]) Then
 					$inputFile = $CmdLine[$ndx + 1]
-					$exceptionCode = 23
-					ExitLoop
-				Until 1
-
-				;;; CATCH
-				Switch $exceptionCode
-					Case 0      ; no exception
-					Case 23
-						MsgBox(16, "TaskDaddy Error", "/f must specify file containing tasks)")
-						Exit(23)
-				EndSwitch
-
+					$argTask = ""  ;
+					ExitLoop     ; Exit For and stop reading command line
+				Else
+					MsgBox(16, "TaskDaddy Error", "/f must specify file containing tasks")
+					Exit(23)
+				EndIf
+		
 			Case "/p", "-p"
 				$isGUI = True
 			Case "/?", "-?"
@@ -76,11 +74,6 @@ Func ParseArguments()
 				EndIf
 		EndSwitch
 	Next
-
-	If ($inputFile <> "" And $argTask <> "") Then
-		MsgBox(16, "TaskDaddy Error", "If using task input file (/f), do not specify task on command line")
-		Exit(2)
-	EndIf
 
 	If ($inputFile = "" And $argTask = "") Then
 		$isGUI = True

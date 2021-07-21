@@ -1,4 +1,3 @@
-#include-once
 #include <Array.au3>
 #include "TaskDaddyCore.au3"
 #include "TaskDaddyArguments.au3"

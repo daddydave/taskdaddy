@@ -1,3 +1,4 @@
+#include-once
 AutoItSetOption("MustDeclareVars", 1)
 
 Local $LogFileName = ""
