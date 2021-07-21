@@ -37,7 +37,7 @@ Func ParseArguments()
 	Local $ndx, $exceptionCode
 
 	If $CmdLine[0] = 0 Then
-		Exit(0)
+		$isGUI = True
 	EndIf
 
 	$argTask = ""
@@ -47,7 +47,7 @@ Func ParseArguments()
 	; Error handling technique: https://www.autoitscript.com/forum/topic/70669-exception-handling-in-autoit/
 	For $ndx = 1 To $CmdLine[0]
 
-		Switch ($CmdLine[$ndx])
+			Switch ($CmdLine[$ndx])
 			Case "/f", "-f"
 				;;; TRY
 				Do 
