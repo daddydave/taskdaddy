@@ -51,8 +51,6 @@ Func ParseArguments()
 
 			Switch ($CmdLine[$ndx])
 			Case "/f", "-f"
-				$DDLogging = True
-				DDLog("$ndx + 1 = " & String($ndx + 1) & " $CmdLine[0] =" & $CmdLine[$ndx])
 				If $ndx + 1 <= Number($CmdLine[0]) Then
 					$inputFile = $CmdLine[$ndx + 1]
 					$argTask = ""  ;
